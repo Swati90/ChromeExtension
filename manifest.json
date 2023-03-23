@@ -1,0 +1,26 @@
+{
+    "name": "ComposeMate",
+    "version": "1.0.0",
+    "description": "Your mate for composing mails",
+    "manifest_version": 3,
+    "content_scripts": [{ "js": ["content.js", "bootstrap.min.js", "popper.min.js"], "css":["bootstrap.min.css"], "matches": ["<all_urls>"],  "run_at": "document_start",
+    "all_frames": true}],
+    "author": "MS Noida Warriors",
+    "background": {
+        "service_worker": "background.js"
+      },
+    "action": {},
+    "web_accessible_resources": [{ 
+      "resources": ["bootstrap.min.css", "bootstrap.min.js", "popper.min.js"],
+      "matches":["http://*/*", "https://*/*"]
+    }],
+    "content_security_policy": {
+      "extension_pages": "script-src 'self'; object-src 'self'; script-src-elem 'self' 'unsafe-inline' https://music.yandex.ru/;"
+    },
+  "permissions": [
+      "activeTab",
+      "scripting",
+      "tabs",
+      "notifications"
+    ]
+}
