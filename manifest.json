@@ -23,11 +23,13 @@
 		"extension_pages": "script-src 'self'; object-src 'self'; script-src-elem 'self' 'unsafe-inline' https://music.yandex.ru/;"
 	},
 	"permissions": [
-		"https://mail.google.com/",
-		"https://inbox.google.com/",
 		"activeTab",
 		"scripting",
 		"tabs",
 		"notifications"
-	]
+	],
+  "host_permissions": [
+    "https://mail.google.com/",
+		"https://inbox.google.com/"
+]
 }
