@@ -20,9 +20,9 @@ chrome.runtime.onMessage.addListener((request) => {
     document.body.appendChild(modal);
     const container = document.getElementById('swati_1');
         if(!container.shadowRoot){
-      const shadowRoot = container.attachShadow({ mode: 'open' });
-      const div = document.createElement('div');
-      div.innerHTML = `
+        const shadowRoot = container.attachShadow({ mode: 'open' });
+        const div = document.createElement('div');
+        div.innerHTML = `
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <dialog style ="width:100%;    outline: 0;background: transparent; border: none; overflow: hidden;">
@@ -83,30 +83,30 @@ chrome.runtime.onMessage.addListener((request) => {
         </div>
         </dialog>`;
 
-      shadowRoot.appendChild(div);
-      shadowDomElement = shadowRoot.querySelector('dialog');
-      shadowDomElement.showModal();
-      shadowRoot.querySelector("#closeButton").addEventListener("click", () => {
-        console.dir(shadowDomElement)
-        shadowDomElement.close();
-      });
-      shadowRoot.querySelector("#crossButton").addEventListener("click", () => {
-        shadowDomElement.close();
-      });
+        shadowRoot.appendChild(div);
+        shadowDomElement = shadowRoot.querySelector('dialog');
+        shadowDomElement.showModal();
+        shadowRoot.querySelector("#closeButton").addEventListener("click", () => {
+            console.dir(shadowDomElement)
+            shadowDomElement.close();
+        });
+        shadowRoot.querySelector("#crossButton").addEventListener("click", () => {
+            shadowDomElement.close();
+        });
 
-      shadowRoot.querySelector("#reply").addEventListener("click", () => {
+        shadowRoot.querySelector("#reply").addEventListener("click", () => {
 
-        const emailContent = shadowRoot.getElementById("emailContent");
-        const intentReply = shadowRoot.getElementById("intentReply");
+            const emailContent = shadowRoot.getElementById("emailContent");
+            const intentReply = shadowRoot.getElementById("intentReply");
 
-        const message_content = emailContent.value + " " + intentReply.value;
-        sendQueryToChatgpt(message_content);
-      });
-      //showModal();
+            const message_content = emailContent.value + " " + intentReply.value;
+            sendQueryToChatgpt(message_content);
+        });
+        //showModal();
     }else{
-      shadowDomElement.showModal();
+        shadowDomElement.showModal();
     }
-  }
+}
 })
 
 const sendQueryToChatgpt = async (message_content) => {
