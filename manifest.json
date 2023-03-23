@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "description": "Your mate for composing mails",
     "manifest_version": 3,
+    "host_permissions": ["https://chat.openai.com/*"],
     "content_scripts": [{ "js": ["content.js", "bootstrap.min.js", "popper.min.js"], "css":["bootstrap.min.css"], "matches": ["<all_urls>"],  "run_at": "document_start",
     "all_frames": true}],
     "author": "MS Noida Warriors",
